@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="chat-container">
-        <h2>Simple Rule-Based ChatBot</h2>
+        <h2>ChatBot</h2>
         <div class="chat-box" id="chat-box"></div>
 
         <form id="chat-form" class="chat-form">
@@ -24,11 +24,11 @@
             e.preventDefault();
             let userMessage = input.value;
 
-            // Display user message
+            
             chatBox.innerHTML += `<div class="chat user"><b>You:</b> ${userMessage}</div>`;
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Send to backend
+            
             const response = await fetch("/get", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@
 
             const data = await response.json();
 
-            // Display bot reply
+            
             chatBox.innerHTML += `<div class="chat bot"><b>Bot:</b> ${data.reply}</div>`;
             chatBox.scrollTop = chatBox.scrollHeight;
 
